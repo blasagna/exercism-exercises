@@ -1,20 +1,18 @@
 #
 # Skeleton file for the Python "Bob" exercise.
 #
+
+
 def hey(what):
     what = what.strip()
 
-    if what == '':
-        bobsays = 'Fine. Be that way!'
-    elif what.isupper():
-        bobsays = 'Whoa, chill out!'
+    if len(what) == 0:
+        reply = 'Fine. Be that way!'
+    elif any(c.isupper() for c in what) and not any(c.islower() for c in what):
+        reply = 'Whoa, chill out!'
     elif what[-1] == '?':
-        bobsays = 'Sure.'
-        if what.isupper():
-            bobsays = 'Whoa, chill out!'
+        reply = 'Sure.'
     else:
-        bobsays = 'Whatever.'
-    
-    return bobsays
+        reply = 'Whatever.'
 
-print hey("Let's go make out behind the gym!")
+    return reply
